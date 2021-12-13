@@ -2,7 +2,9 @@ lockfileVersion: 5.3
 
 specifiers:
   '@tsconfig/node14': ^1.0.1
+  '@types/cli-spinner': ^0.2.1
   '@types/node': ^16.11.12
+  '@types/prompts': ^2.0.14
   adze: ^1.4.0
   ava: ^3.15.0
   chalk: ^5.0.0
@@ -10,6 +12,7 @@ specifiers:
   commander: ^8.3.0
   configstore: ^6.0.0
   figlet: ^1.5.2
+  fs-jetpack: ^4.3.0
   husky: ^7.0.4
   lint-staged: ^12.1.2
   prettier: ^2.5.1
@@ -18,16 +21,19 @@ specifiers:
   typescript: ^4.5.2
 
 dependencies:
+  '@types/cli-spinner': 0.2.1
   adze: 1.4.0
   chalk: 5.0.0
   cli-spinner: 0.2.10
   configstore: 6.0.0
   figlet: 1.5.2
+  fs-jetpack: 4.3.0
   prompts: 2.4.2
 
 devDependencies:
   '@tsconfig/node14': 1.0.1
   '@types/node': 16.11.12
+  '@types/prompts': 2.0.14
   ava: 3.15.0
   commander: 8.3.0
   husky: 7.0.4
@@ -171,13 +177,22 @@ packages:
       }
     dev: true
 
+  /@types/cli-spinner/0.2.1:
+    resolution:
+      {
+        integrity: sha512-bsdlZy3LThi9QbsK0GXm5s/e3F6HAJi1tMsIanm9trtoStSlV3gzir9JpfOK40gERMNIVevDTpG5NzSGnYs3QA==,
+      }
+    dependencies:
+      '@types/node': 16.11.12
+    dev: false
+
   /@types/lodash.clonedeep/4.5.6:
     resolution:
       {
         integrity: sha512-cE1jYr2dEg1wBImvXlNtp0xDoS79rfEdGozQVgliDZj1uERH4k+rmEMTudP9b4VQ8O6nRb5gPqft0QzEQGMQgA==,
       }
     dependencies:
-      '@types/lodash': 4.14.177
+      '@types/lodash': 4.14.178
     dev: false
 
   /@types/lodash.defaultsdeep/4.6.6:
@@ -186,13 +201,13 @@ packages:
         integrity: sha512-k3bXTg1/54Obm6uFEtSwvDm2vCyK9jSROv0V9X3gFFNPu7eKmvqqadPSXx0SkVVixSilR30BxhFlnIj8OavXOA==,
       }
     dependencies:
-      '@types/lodash': 4.14.177
+      '@types/lodash': 4.14.178
     dev: false
 
-  /@types/lodash/4.14.177:
+  /@types/lodash/4.14.178:
     resolution:
       {
-        integrity: sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==,
+        integrity: sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==,
       }
     dev: false
 
@@ -208,13 +223,21 @@ packages:
       {
         integrity: sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==,
       }
-    dev: true
 
   /@types/normalize-package-data/2.4.1:
     resolution:
       {
         integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==,
       }
+    dev: true
+
+  /@types/prompts/2.0.14:
+    resolution:
+      {
+        integrity: sha512-HZBd99fKxRWpYCErtm2/yxUZv6/PBI9J7N4TNFffl5JbrYMHBwF25DjQGTW3b3jmXq+9P6/8fCIb2ee57BFfYA==,
+      }
+    dependencies:
+      '@types/node': 16.11.12
     dev: true
 
   /acorn-walk/8.2.0:
@@ -482,7 +505,6 @@ packages:
       {
         integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==,
       }
-    dev: true
 
   /base64-js/1.5.1:
     resolution:
@@ -542,7 +564,6 @@ packages:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
-    dev: true
 
   /braces/3.0.2:
     resolution:
@@ -832,7 +853,6 @@ packages:
 
   /concat-map/0.0.1:
     resolution: { integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s= }
-    dev: true
 
   /concordance/5.0.4:
     resolution:
@@ -1272,9 +1292,18 @@ packages:
       path-exists: 4.0.0
     dev: true
 
+  /fs-jetpack/4.3.0:
+    resolution:
+      {
+        integrity: sha512-Zx4OJ8HyKvZL9sgxegMGRCgAJSQET5Cqpj/SESwnzqHruHvhkilJBGLoZf6EiYr3UWJDqcPoWDX7aAfaj7D9Qw==,
+      }
+    dependencies:
+      minimatch: 3.0.4
+      rimraf: 2.7.1
+    dev: false
+
   /fs.realpath/1.0.0:
     resolution: { integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8= }
-    dev: true
 
   /fsevents/2.3.2:
     resolution:
@@ -1352,7 +1381,6 @@ packages:
       minimatch: 3.0.4
       once: 1.4.0
       path-is-absolute: 1.0.1
-    dev: true
 
   /global-dirs/3.0.0:
     resolution:
@@ -1523,14 +1551,12 @@ packages:
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
-    dev: true
 
   /inherits/2.0.4:
     resolution:
       {
         integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==,
       }
-    dev: true
 
   /ini/1.3.8:
     resolution:
@@ -2077,7 +2103,6 @@ packages:
       }
     dependencies:
       brace-expansion: 1.1.11
-    dev: true
 
   /minimist/1.2.5:
     resolution:
@@ -2149,7 +2174,6 @@ packages:
     resolution: { integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E= }
     dependencies:
       wrappy: 1.0.2
-    dev: true
 
   /onetime/5.1.2:
     resolution:
@@ -2323,7 +2347,6 @@ packages:
   /path-is-absolute/1.0.1:
     resolution: { integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18= }
     engines: { node: '>=0.10.0' }
-    dev: true
 
   /path-key/3.1.1:
     resolution:
@@ -2589,6 +2612,16 @@ packages:
         integrity: sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA==,
       }
     dev: true
+
+  /rimraf/2.7.1:
+    resolution:
+      {
+        integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==,
+      }
+    hasBin: true
+    dependencies:
+      glob: 7.2.0
+    dev: false
 
   /rimraf/3.0.2:
     resolution:
@@ -3212,7 +3245,6 @@ packages:
 
   /wrappy/1.0.2:
     resolution: { integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8= }
-    dev: true
 
   /write-file-atomic/3.0.3:
     resolution:
