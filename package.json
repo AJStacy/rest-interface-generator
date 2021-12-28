@@ -51,6 +51,11 @@
     "configstore": "^6.0.0",
     "figlet": "^1.5.2",
     "fs-jetpack": "^4.3.0",
+    "module-alias": "^2.2.2",
     "prompts": "^2.4.2"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "~": "dist/src"
   }
 }

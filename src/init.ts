@@ -9,9 +9,10 @@ import adze from 'adze';
 // - records basepath (for documentation purposes)
 
 /**
- * Initializes the rig project.
+ * Initializes the rig project. A project must be initialized at the root of your repository and a
+ * package.json must be present.
  */
-export default function makeInitCommand() {
+export default function main() {
   const init = new commander.Command('init');
   init.action(async () => {
     try {
@@ -35,11 +36,20 @@ export default function makeInitCommand() {
         }
       );
 
-      const spinner = new Spinner('Processing... %s');
-      spinner.start();
       const config = { location, basePath };
-      jetpack.write('./.rig.json', config);
-      spinner.stop(true);
+
+      if (jetpack.exists('./package.json')) {
+        const spinner = new Spinner('Processing... %s');
+        spinner.start();
+        const pkg = jetpack.read('./package.json', 'json');
+        pkg.rig = config;
+        jetpack.write('./package.json', { overwrite: true });
+        spinner.stop(true);
+      } else {
+        throw new Error(
+          'Cannot find package.json. Please initialize your project from the same location of your package.json.'
+        );
+      }
 
       adze({ useEmoji: true }).log('Successfully created the rig configuration.');
     } catch (e) {

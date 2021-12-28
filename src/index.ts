@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+require('module-alias/register');
 import { Command } from 'commander';
-import prompts from 'prompts';
 import { Spinner } from 'cli-spinner';
-import jetpack from 'fs-jetpack';
 import config from '../package.json';
 import makeInitCommand from './init';
+import makeCreateCommand from './create';
 
 Spinner.setDefaultSpinnerString('🕛🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚');
 
@@ -30,14 +30,6 @@ program.option('-v, --version', 'version of rig').action((args) => {
 
 // Set up the init command
 program.addCommand(makeInitCommand());
-
-// rig create <path> (example /resources/{id})
-//  - parses the path to know which file to create interfaces in
-//  - options:
-//    + --description, -d "Description of the endpoint."
-//    + --get, -G (GET method)
-//    + --post, -P (POST method)
-//    + --put, -p (PUT method)
-//    + --delete, -D (DELETE method)
+program.addCommand(makeCreateCommand());
 
 program.parse(process.argv);
